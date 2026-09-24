@@ -5,7 +5,7 @@ export const siteDescription =
 
 export const founderName = "Jemimah Vedamonickam";
 
-export const enquiryEmail = "hello@mettlenest.com";
+export const enquiryEmail = "hello@mettlenest.com.au";
 export const enquiryMailto = `mailto:${enquiryEmail}?subject=${encodeURIComponent("BRIDGE Alignment Session enquiry")}`;
 
 // Used for the sitemap, robots.txt and Open Graph URLs. Set NEXT_PUBLIC_SITE_URL when deploying.
