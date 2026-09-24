@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EggDot } from "@/components/EggDot";
+import { FounderProfile } from "@/components/FounderProfile";
 import {
   aboutLead,
   beliefs,
@@ -34,6 +35,8 @@ export default function AboutPage() {
               {p.strong ? <strong>{p.text}</strong> : p.text}
             </p>
           ))}
+
+          <FounderProfile />
 
           <h2 className="mt-10 mb-3 text-[26px]">
             Two entry points, one system

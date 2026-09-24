@@ -1,0 +1,13 @@
+FOUNDER PHOTO FOR THE ABOUT PAGE
+
+Put the portrait photo in this folder, named:
+
+  founder.jpg      (founder.jpeg, founder.png or founder.webp also work)
+
+- A portrait (taller than wide) works best. It is shown in a 4:5 frame,
+  cropped from the centre, so keep the face near the middle.
+- Any size is fine. The site makes a small, fast web copy automatically
+  (public/images/founder.webp) when you run "npm run dev" or "npm run build".
+- While "npm run dev" is running, just refresh the About page after adding it.
+
+Until a photo is here, the About page shows the founder's initials instead.

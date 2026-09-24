@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EggDivider } from "@/components/EggDivider";
 import { Headline } from "@/components/Headline";
 import { SearchBox, buttonClass } from "@/components/SearchBox";
 import { founderName } from "@/content/site";
@@ -33,18 +34,17 @@ export default function Home() {
       </div>
 
       <div className="mt-10 text-center">
-        <p className="mb-[18px] text-[15px] font-bold tracking-[0.04em] text-gold-text">
-          Behaviour Coaching &amp; Educational Training
-        </p>
         <Headline />
       </div>
+
+      <EggDivider className="mt-14" />
 
       {/* Plain GET form: works without JavaScript and lands on /quick-links/?q=… */}
       <form
         action={withBase("/quick-links/")}
         method="get"
         role="search"
-        className="mx-auto mt-16 max-w-[640px] text-center"
+        className="mx-auto mt-12 max-w-[640px] text-center"
       >
         <label
           htmlFor="homeq"

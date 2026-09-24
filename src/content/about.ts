@@ -67,3 +67,10 @@ export const beliefs: { strong: string; rest: string; egg: Egg }[] = [
     egg: "grow",
   },
 ];
+
+/** "Meet the founder" on the About page. The name comes from founderName in site.ts. */
+export const founderRole =
+  "Founder of MettleNest · Creator of the BRIDGE Method";
+
+// TODO: add a short bio (one paragraph per string). The section works without it.
+export const founderBio: string[] = [];

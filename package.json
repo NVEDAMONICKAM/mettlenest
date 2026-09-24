@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "tsx scripts/dev.ts",
-    "prebuild": "npm run validate:content && npm run sync:resources",
+    "prebuild": "npm run validate:content && npm run sync:resources && npm run sync:photos",
     "build": "next build",
     "preview": "serve out",
     "lint": "eslint .",
@@ -13,6 +13,7 @@
     "format:check": "prettier --check .",
     "scaffold:resources": "tsx scripts/scaffold-resources.ts",
     "sync:resources": "tsx scripts/sync-resources.ts",
+    "sync:photos": "tsx scripts/sync-photos.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "locks:dev": "tsx scripts/locks-dev-server.ts",
     "og:image": "tsx scripts/make-og-image.tsx",

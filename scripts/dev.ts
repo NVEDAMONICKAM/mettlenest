@@ -8,9 +8,11 @@ import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { LOCKS_PATH, RESOURCE_FILES_DIR } from "../src/lib/resourcePaths";
+import { PHOTOS_DIR, syncPhotos } from "./sync-photos";
 import { sync } from "./sync-resources";
 
 sync();
+void syncPhotos();
 
 const next = spawn("next", ["dev", ...process.argv.slice(2)], {
   stdio: "inherit",
@@ -18,6 +20,7 @@ const next = spawn("next", ["dev", ...process.argv.slice(2)], {
 });
 
 let timer: NodeJS.Timeout | undefined;
+let photoTimer: NodeJS.Timeout | undefined;
 function resync(reason: string) {
   clearTimeout(timer);
   timer = setTimeout(() => {
@@ -35,6 +38,10 @@ const watchers = [
     resync(`${RESOURCE_FILES_DIR}/${file ?? ""}`),
   ),
   fs.watch(path.resolve(LOCKS_PATH), () => resync(LOCKS_PATH)),
+  fs.watch(path.resolve(PHOTOS_DIR), () => {
+    clearTimeout(photoTimer);
+    photoTimer = setTimeout(() => void syncPhotos(), 400);
+  }),
 ];
 
 function stop(code = 0) {

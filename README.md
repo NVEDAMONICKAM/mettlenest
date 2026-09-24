@@ -57,6 +57,15 @@ Files are copied into the site by `npm run sync:resources`. This runs automatica
 
 ---
 
+### Adding the founder photo (About page)
+
+Put the portrait in the **`photos/`** folder, named **`founder.jpg`** (`.jpeg`, `.png` or `.webp`
+also work). Any size is fine: a small, fast web copy is made automatically when you run
+`npm run dev` or `npm run build`. It is shown in a 4:5 portrait frame, cropped from the centre.
+Until a photo is there, the About page shows the founder's initials.
+
+---
+
 ## 3. Editing content
 
 All the words on the site live in **`src/content/`**:
@@ -70,8 +79,8 @@ All the words on the site live in **`src/content/`**:
 | `situations.ts` | Quick links situations, and the four "popular" chips on Home |
 | `locks.json`    | Which resources are locked (see section 4)                   |
 
-**Before launch, fill in the placeholders marked `TODO` in `src/content/site.ts`:** the founder's
-name, the enquiry email and the website address.
+**`src/content/site.ts`** holds the founder's name, the enquiry email and the website address.
+The founder's short bio goes in `founderBio` in `src/content/about.ts`.
 
 ### Add or edit a resource
 

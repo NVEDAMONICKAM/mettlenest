@@ -5,3 +5,5 @@ public
 design
 src/generated
 package-lock.json
+resource-files
+photos
