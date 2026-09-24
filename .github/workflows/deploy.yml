@@ -29,10 +29,14 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
-      - run: npm run build
+      # Pages reports http:// until HTTPS is enforced; links in the sitemap and share
+      # image should always use https://.
+      - name: Build
+        shell: bash
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.origin }}
+          PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
+        run: NEXT_PUBLIC_SITE_URL="${PAGES_ORIGIN/#http:/https:}" npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
