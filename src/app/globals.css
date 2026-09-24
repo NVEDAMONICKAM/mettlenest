@@ -15,6 +15,8 @@
   --gold: #d29b34;
   /* Gold for text on light grounds: #D29B34 is 2.5:1 on white, this is 5.1:1 (WCAG AA). */
   --gold-text: #946514;
+  /* Green for text: #5E7F57 is under 4.5:1 on the panel and on the green note tint. */
+  --green-text: #4d6e47;
   --twig: #8a6a45;
   --accent: #13294b;
   --on-accent: #ffffff;
@@ -38,6 +40,7 @@
   --blue: #4f82b8;
   --gold: #d8a443;
   --gold-text: #d8a443;
+  --green-text: #7fa376;
   --twig: #b08b60;
   --accent: #d8a443;
   --on-accent: #16202d;
@@ -61,6 +64,7 @@
   --color-blue: var(--blue);
   --color-gold: var(--gold);
   --color-gold-text: var(--gold-text);
+  --color-green-text: var(--green-text);
   --color-twig: var(--twig);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);

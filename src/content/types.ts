@@ -28,3 +28,12 @@ export type BridgeStep = {
   title: string;
   description: string;
 };
+
+/** One published file for a resource, from src/generated/downloads-manifest.json. */
+export type DownloadFile = {
+  name: string;
+  /** Public path under /downloads/, without the base path. Wrap with withBase() before use. */
+  path: string;
+  sizeBytes: number;
+  ext: string;
+};
