@@ -51,31 +51,33 @@ export function ResourceBrowser({
     window.history.replaceState(null, "", url);
   }
 
+  // Mobile order is heading → filters → results; from 900px the filters sit in a left column.
   return (
-    <div className="grid grid-cols-[250px_1fr] gap-11 max-nav:grid-cols-1">
+    <div className="grid grid-cols-1 nav:grid-cols-[250px_1fr] nav:grid-rows-[auto_1fr] nav:gap-x-11">
+      <div className="mb-[22px] flex flex-wrap items-end justify-between gap-5 nav:col-start-2 nav:row-start-1">
+        <div>
+          <h1 className="mb-1.5 text-[40px]">Resources</h1>
+          <p className="text-[15px] text-soft" aria-live="polite">
+            {items.length} of {resources.length} resources
+          </p>
+        </div>
+        <SearchBox
+          className="min-w-[280px] max-nav:w-full max-nav:min-w-0"
+          placeholder="Search resources"
+          aria-label="Search resources"
+          value={state.q}
+          onChange={(e) => update({ ...state, q: e.target.value })}
+        />
+      </div>
       <ResourceFilters
+        className="nav:col-start-1 nav:row-span-2 nav:row-start-1"
         state={state}
         eggs={eggs}
         formats={formats}
         onChange={update}
         showHideLocked={locked.size > 0}
       />
-      <div>
-        <div className="mb-[22px] flex flex-wrap items-end justify-between gap-5">
-          <div>
-            <h1 className="mb-1.5 text-[40px]">Resources</h1>
-            <p className="text-[15px] text-soft" aria-live="polite">
-              {items.length} of {resources.length} resources
-            </p>
-          </div>
-          <SearchBox
-            className="min-w-[280px] max-nav:w-full max-nav:min-w-0"
-            placeholder="Search resources"
-            aria-label="Search resources"
-            value={state.q}
-            onChange={(e) => update({ ...state, q: e.target.value })}
-          />
-        </div>
+      <div className="nav:col-start-2 nav:row-start-2">
         {items.length ? (
           <div className="grid grid-cols-2 gap-3.5 max-nav:grid-cols-1">
             {items.map((r) => (
