@@ -13,7 +13,7 @@ export function Header() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- static export, no optimiser */}
           <img
-            src={withBase("/brand/emblem.png")}
+            src={withBase("/brand/web/emblem-96.webp")}
             alt=""
             width={46}
             height={46}
@@ -21,7 +21,7 @@ export function Header() {
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={withBase("/brand/name.png")}
+            src={withBase("/brand/web/name-300.webp")}
             alt="MettleNest home"
             width={149}
             height={30}
@@ -29,7 +29,8 @@ export function Header() {
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={withBase("/brand/name-dark.png")}
+            src={withBase("/brand/web/name-dark-300.webp")}
+            loading="lazy" // hidden in light mode, so don't download it up front
             alt="MettleNest home"
             width={149}
             height={30}

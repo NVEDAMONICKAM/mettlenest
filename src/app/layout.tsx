@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Nunito_Sans, Young_Serif } from "next/font/google";
+import { Nunito_Sans, Young_Serif } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -15,13 +15,6 @@ const youngSerif = Young_Serif({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-young-serif",
-});
-// Home headline only (600 upright, 400 italic). Variable font so the optical-size axis matches the mockup.
-const fraunces = Fraunces({
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-  subsets: ["latin"],
-  variable: "--font-fraunces",
 });
 // Variable weight (400/600/700 used) with the optical-size axis, as in the mockup.
 const nunitoSans = Nunito_Sans({
@@ -45,6 +38,7 @@ export const metadata: Metadata = {
     title: `${siteName} · ${siteTagline}`,
     description: siteDescription,
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
@@ -61,7 +55,7 @@ export default function RootLayout({
     <html
       lang="en-AU"
       suppressHydrationWarning
-      className={`${youngSerif.variable} ${fraunces.variable} ${nunitoSans.variable}`}
+      className={`${youngSerif.variable} ${nunitoSans.variable}`}
     >
       <body>
         <ThemeProvider>

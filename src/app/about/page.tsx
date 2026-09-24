@@ -72,7 +72,7 @@ export default function AboutPage() {
         <aside className="sticky top-[110px] self-start max-nav:static max-nav:max-w-[260px]">
           {/* eslint-disable-next-line @next/next/no-img-element -- static export, no optimiser */}
           <img
-            src={withBase("/brand/sign-logo.png")}
+            src={withBase("/brand/web/sign-logo-680.webp")}
             alt="MettleNest sign logo: a bluebird beside a nest holding three eggs"
             width={340}
             height={340}

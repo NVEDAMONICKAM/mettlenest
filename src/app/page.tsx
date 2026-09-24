@@ -14,7 +14,8 @@ export default function Home() {
         <h1 className="sr-only">MettleNest</h1>
         {/* eslint-disable-next-line @next/next/no-img-element -- static export, no optimiser */}
         <img
-          src={withBase("/brand/wordmark.png")}
+          src={withBase("/brand/web/wordmark-1040.webp")}
+          fetchPriority="high"
           alt="MettleNest: Understand, Connect, Grow"
           width={1145}
           height={280}
@@ -22,7 +23,8 @@ export default function Home() {
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={withBase("/brand/wordmark-dark.png")}
+          src={withBase("/brand/web/wordmark-dark-1040.webp")}
+          loading="lazy" // hidden in light mode, so don't download it up front
           alt="MettleNest: Understand, Connect, Grow"
           width={1145}
           height={280}
@@ -77,7 +79,7 @@ export default function Home() {
       </form>
 
       <div className="mt-20 grid grid-cols-[1.1fr_.9fr] gap-[22px] max-nav:grid-cols-1">
-        <section className="rounded-[22px] bg-teaser px-9 py-[34px] text-white">
+        <section className="rounded-[22px] bg-teaser px-9 py-[34px] text-white [--focus:#DDB05A]">
           <span className="inline-flex items-center gap-1.5 text-[13.5px] font-bold text-gold">
             <span aria-hidden="true">✦</span> Created by {founderName}
           </span>

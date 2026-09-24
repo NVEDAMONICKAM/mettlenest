@@ -6,6 +6,7 @@
     "dev": "tsx scripts/dev.ts",
     "prebuild": "npm run validate:content && npm run sync:resources",
     "build": "next build",
+    "preview": "serve out",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
@@ -13,7 +14,9 @@
     "scaffold:resources": "tsx scripts/scaffold-resources.ts",
     "sync:resources": "tsx scripts/sync-resources.ts",
     "validate:content": "tsx scripts/validate-content.ts",
-    "locks:dev": "tsx scripts/locks-dev-server.ts"
+    "locks:dev": "tsx scripts/locks-dev-server.ts",
+    "og:image": "tsx scripts/make-og-image.tsx",
+    "brand:images": "tsx scripts/optimize-brand.ts"
   },
   "dependencies": {
     "next": "16.3.6",
@@ -31,6 +34,8 @@
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.9",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "serve": "^14.2.6",
+    "sharp": "^0.35.4",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
     "typescript": "^5"

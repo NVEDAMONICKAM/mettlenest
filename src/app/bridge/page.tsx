@@ -18,7 +18,7 @@ export default function BridgePage() {
   const steps = getBridgeSteps();
 
   return (
-    <div className="bg-band px-[26px] pt-20 pb-[90px] text-on-band max-nav:px-[22px] max-nav:pt-14 max-nav:pb-[70px]">
+    <div className="bg-band px-[26px] pt-20 pb-[90px] text-on-band [--focus:#DDB05A] max-nav:px-[22px] max-nav:pt-14 max-nav:pb-[70px]">
       <div className="mx-auto max-w-[1140px]">
         <p className="mb-[22px] inline-flex items-center gap-2.5 rounded-full border border-arch/60 py-1.5 pr-3.5 pl-2 text-sm">
           <i
