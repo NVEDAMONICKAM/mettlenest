@@ -16,15 +16,16 @@ const youngSerif = Young_Serif({
   subsets: ["latin"],
   variable: "--font-young-serif",
 });
-// Home headline only: 600 upright and 400 italic.
+// Home headline only (600 upright, 400 italic). Variable font so the optical-size axis matches the mockup.
 const fraunces = Fraunces({
-  weight: ["400", "600"],
   style: ["normal", "italic"],
+  axes: ["opsz"],
   subsets: ["latin"],
   variable: "--font-fraunces",
 });
+// Variable weight (400/600/700 used) with the optical-size axis, as in the mockup.
 const nunitoSans = Nunito_Sans({
-  weight: ["400", "600", "700"],
+  axes: ["opsz"],
   subsets: ["latin"],
   variable: "--font-nunito-sans",
 });
