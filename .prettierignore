@@ -1,0 +1,7 @@
+.next
+out
+node_modules
+public
+design
+src/generated
+package-lock.json

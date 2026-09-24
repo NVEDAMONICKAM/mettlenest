@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens, taken from design/mockup.html. */
+:root {
+  --bg: #ffffff;
+  --panel: #f4f6f1;
+  --ink: #1b2533;
+  --soft: #5b6675;
+  --line: #e2e6de;
+  --navy: #13294b;
+  --green: #5e7f57;
+  --blue: #3a6a9e;
+  --gold: #d29b34;
+  /* Gold for text on light grounds: #D29B34 is 2.5:1 on white, this is 5.1:1 (WCAG AA). */
+  --gold-text: #946514;
+  --twig: #8a6a45;
+  --accent: #13294b;
+  --on-accent: #ffffff;
+  --band: #13294b;
+  --teaser: #13294b;
+
+  /* Same in both modes */
+  --arch: #ddb05a;
+  --on-band: #eef1f5;
+  --on-band-soft: #b7c3d3;
+}
+
+.dark {
+  --bg: #0d1726;
+  --panel: #142236;
+  --ink: #e7eaee;
+  --soft: #9da9b8;
+  --line: #233651;
+  --navy: #c3d3e8;
+  --green: #6f9466;
+  --blue: #4f82b8;
+  --gold: #d8a443;
+  --gold-text: #d8a443;
+  --twig: #b08b60;
+  --accent: #d8a443;
+  --on-accent: #16202d;
+  --band: #0a1321;
+  --teaser: #1b2f4c;
+  color-scheme: dark;
+}
+
+@theme {
+  --breakpoint-nav: 900px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-navy: var(--navy);
+  --color-green: var(--green);
+  --color-blue: var(--blue);
+  --color-gold: var(--gold);
+  --color-gold-text: var(--gold-text);
+  --color-twig: var(--twig);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-band: var(--band);
+  --color-teaser: var(--teaser);
+  --color-arch: var(--arch);
+  --color-on-band: var(--on-band);
+  --color-on-band-soft: var(--on-band-soft);
+
+  --font-serif: var(--font-young-serif), Georgia, serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-nunito-sans), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    overflow-x: clip;
+  }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
+    transition: background-color 0.25s;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--navy);
+    line-height: 1.15;
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  @media (max-width: 900px) {
+    body {
+      padding-bottom: 70px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@utility wrap {
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 26px;
+}
+
+/* Underlined text link with the gold rule from the mockup */
+@utility link-gold {
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 2px solid var(--gold);
+}
