@@ -20,6 +20,7 @@ type Props = {
   formats: string[];
   files: Record<string, DownloadFile[]>;
   lockedSlugs: string[];
+  lockedMessage: string;
 };
 
 /** Reads the filters from the URL. Must render inside <Suspense> for static export. */
@@ -38,6 +39,7 @@ export function ResourceBrowser({
   formats,
   files,
   lockedSlugs,
+  lockedMessage,
   initial = defaultFilters,
 }: Props & { initial?: ResourceFilterState }) {
   const [state, setState] = useState(initial);
@@ -86,6 +88,7 @@ export function ResourceBrowser({
                 resource={r}
                 files={files[r.slug] ?? []}
                 locked={locked.has(r.slug)}
+                lockedMessage={lockedMessage}
               />
             ))}
           </div>

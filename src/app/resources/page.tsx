@@ -4,6 +4,7 @@ import {
   ResourceBrowser,
   ResourceBrowserFromUrl,
 } from "@/components/ResourceBrowser";
+import { getLockedMessage, getLockedSlugs } from "@/lib/access";
 import { getDownloads } from "@/lib/downloads";
 import { EGGS, getEggInfo, getFormats, getResources } from "@/lib/content";
 
@@ -22,7 +23,8 @@ export default function ResourcesPage() {
     files: Object.fromEntries(
       resources.map((r) => [r.slug, getDownloads(r.slug)]),
     ),
-    lockedSlugs: [] as string[],
+    lockedSlugs: getLockedSlugs(),
+    lockedMessage: getLockedMessage(),
   };
 
   return (

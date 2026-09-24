@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AccessBadge } from "@/components/AccessBadge";
 import { DownloadList } from "@/components/DownloadList";
+import { LockOverlay } from "@/components/LockOverlay";
 import { EggDot } from "@/components/EggDot";
 import { ResourceAction } from "@/components/ResourceAction";
+import { canAccess, getLockedMessage } from "@/lib/access";
 import { getDownloads } from "@/lib/downloads";
 import {
   audienceLabel,
@@ -40,8 +42,8 @@ export default async function ResourcePage({
   const r = getResource((await params).slug);
   if (!r) notFound();
 
-  const files = getDownloads(r.slug);
-  const locked = false;
+  const locked = !canAccess(r);
+  const files = locked ? [] : getDownloads(r.slug);
   const situations = getSituationsForResource(r.slug);
   const egg = getEggInfo(r.egg);
   const hasOtherAction = !!(r.action || r.videoUrl);
@@ -98,15 +100,40 @@ export default async function ResourcePage({
             className="scroll-mt-28"
           >
             <h2 id="files-heading" className="mb-4 text-[26px]">
-              {hasOtherAction && !files.length ? "Get started" : "Downloads"}
+              {hasOtherAction && !files.length && !locked
+                ? "Get started"
+                : "Downloads"}
             </h2>
-            {hasOtherAction && (
-              <div className="mb-4">
-                <ResourceAction resource={r} files={[]} large />
+            {locked ? (
+              // Files aren't published while locked; this is a dimmed stand-in under the cover.
+              <div className="relative min-h-[190px] rounded-2xl border border-line">
+                <ul
+                  aria-hidden="true"
+                  className="divide-y divide-line opacity-45 grayscale"
+                >
+                  {[0, 1].map((i) => (
+                    <li
+                      key={i}
+                      className="flex items-center justify-between gap-3 px-5 py-6"
+                    >
+                      <span className="h-3.5 w-48 rounded bg-line" />
+                      <span className="h-9 w-24 rounded-[10px] bg-line" />
+                    </li>
+                  ))}
+                </ul>
+                <LockOverlay message={getLockedMessage()} variant="block" />
               </div>
-            )}
-            {(!hasOtherAction || files.length > 0) && (
-              <DownloadList files={files} title={r.title} />
+            ) : (
+              <>
+                {hasOtherAction && (
+                  <div className="mb-4">
+                    <ResourceAction resource={r} files={[]} large />
+                  </div>
+                )}
+                {(!hasOtherAction || files.length > 0) && (
+                  <DownloadList files={files} title={r.title} />
+                )}
+              </>
             )}
           </section>
         </article>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { QuickLinks, QuickLinksFromUrl } from "@/components/QuickLinks";
 import type { TileSituation } from "@/components/SituationTile";
+import { isLocked } from "@/lib/access";
 import { getResource, getSituations } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function QuickLinksPage() {
               title: r.shortTitle ?? r.title,
               format: r.format,
               egg: r.egg,
-              locked: false,
+              locked: isLocked(slug),
             },
           ]
         : [];
