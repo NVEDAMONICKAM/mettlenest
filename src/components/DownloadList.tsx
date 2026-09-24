@@ -1,5 +1,5 @@
 import type { DownloadFile } from "@/content/types";
-import { formatBytes } from "@/lib/downloads";
+import { formatBytes } from "@/lib/format";
 import { withBase } from "@/lib/withBase";
 import { buttonClass } from "./SearchBox";
 

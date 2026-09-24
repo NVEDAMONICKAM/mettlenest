@@ -3,7 +3,7 @@
  * without touching the pages.
  */
 import { bridgeSteps } from "@/content/bridge";
-import { eggs, formatFolders, resources } from "@/content/resources";
+import { eggs, resources } from "@/content/resources";
 import { popularSituations, situations } from "@/content/situations";
 import type { BridgeStep, Egg, Resource, Situation } from "@/content/types";
 
@@ -54,13 +54,6 @@ export function getEggInfo(egg: Egg) {
 
 export function getFormats(): string[] {
   return [...new Set(resources.map((r) => r.format))];
-}
-
-export function getFormatFolder(format: string): string {
-  return (
-    formatFolders[format] ??
-    format.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "s"
-  );
 }
 
 export function audienceLabel(audience: Resource["audience"]): string {

@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "tsx scripts/dev.ts",
+    "prebuild": "npm run sync:resources",
     "build": "next build",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "scaffold:resources": "tsx scripts/scaffold-resources.ts",
+    "sync:resources": "tsx scripts/sync-resources.ts"
   },
   "dependencies": {
     "next": "16.3.6",

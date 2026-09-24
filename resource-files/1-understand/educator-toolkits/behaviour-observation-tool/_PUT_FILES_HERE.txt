@@ -1,0 +1,22 @@
+PUT FILES FOR THIS RESOURCE IN THIS FOLDER
+
+Resource:  Behaviour observation tool
+Egg:       Understand
+Format:    Educator toolkit
+For:       Educators
+Web page:  /resources/behaviour-observation-tool/
+
+Accepted file types: .pdf, .docx, .pptx, .png, .jpg, .mp3, .mp4
+PDF is recommended: it opens the same on every device.
+
+Name files in lowercase with hyphens, for example:
+  behaviour-observation-tool.pdf
+You can add more than one file. Each one appears as its own download, sorted by name
+(so "1-guide.pdf" comes before "2-worksheet.pdf").
+Keep each file under 25 MB. GitHub rejects files over 100 MB.
+
+TO PUBLISH: run  npm run sync:resources
+(It also runs automatically when you start "npm run dev" and before "npm run build".)
+
+This file is rewritten by "npm run scaffold:resources". Anything else you put in this
+folder is left alone.
